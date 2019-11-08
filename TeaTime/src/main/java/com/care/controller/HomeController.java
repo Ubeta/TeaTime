@@ -36,4 +36,22 @@ public class HomeController {
 		return "home";
 	}
 	
+	//Testing
+	@RequestMapping("l_header")
+	public String l_header() {
+		return "l_header";
+	}
+	@RequestMapping("m_header")
+	public String m_header() {
+		return "m_header";
+	}
+	@RequestMapping("f_header")
+	public String f_header() {
+		return "f_header";
+	}
+	@RequestMapping("my_header")
+	public String my_header() {
+		return "my_header";
+	}
+	
 }
