@@ -75,7 +75,7 @@
 
 .search-bar {
 	height: 30px;
-	width: 300px; height : 30px;
+	width: 300px;
 	font-size: 16pt;
 }
 

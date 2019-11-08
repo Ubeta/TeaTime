@@ -53,5 +53,9 @@ public class HomeController {
 	public String my_header() {
 		return "/header/my_header";
 	}
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
 	
 }
