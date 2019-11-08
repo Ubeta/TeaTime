@@ -37,21 +37,21 @@ public class HomeController {
 	}
 	
 	//Testing
-	@RequestMapping("l_header")
+	@RequestMapping("/header/l_header")
 	public String l_header() {
-		return "l_header";
+		return "/header/l_header";
 	}
-	@RequestMapping("m_header")
+	@RequestMapping("/header/m_header")
 	public String m_header() {
-		return "m_header";
+		return "/header/m_header";
 	}
-	@RequestMapping("f_header")
+	@RequestMapping("/header/f_header")
 	public String f_header() {
-		return "f_header";
+		return "/header/f_header";
 	}
-	@RequestMapping("my_header")
+	@RequestMapping("/header/my_header")
 	public String my_header() {
-		return "my_header";
+		return "/header/my_header";
 	}
 	
 }
