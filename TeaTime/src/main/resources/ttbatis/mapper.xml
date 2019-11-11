@@ -7,4 +7,9 @@
 	<insert id="regmember" parameterType="memdto">
 		insert into member (m_id, m_pw, m_name, m_idnum, m_gender, m_tel, m_mail) values (#{m_id},#{m_pw},#{m_name},#{m_idnum},#{m_gender},#{m_tel},#{m_mail})
 	</insert>
+	
+	<!-- 일반 로그인임. -->
+	 <select id="loginchk" resultType="memdto" parameterType="String">
+   		select * from member where m_id=#{m_id}
+   </select> 
 </mapper>

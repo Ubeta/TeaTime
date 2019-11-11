@@ -16,4 +16,7 @@ public class ModelDAO {
 	public void register(MemberDTO dto) {
 		sqlSession.insert(namespace+".regmember",dto);
 	}
+	public MemberDTO loginchk(String m_id) {
+		return sqlSession.selectOne(namespace+".loginchk",m_id);
+	}
 }
