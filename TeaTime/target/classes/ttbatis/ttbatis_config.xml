@@ -7,7 +7,7 @@
     <configuration>
 
 	<typeAliases><!-- alias="결과 값 저장할 객체" -->
-		<typeAlias alias="mdto" type="com.care.modelDTO.MemberDTO"/>
+		<typeAlias alias="memdto" type="com.care.modelDTO.MemberDTO"/>
 	</typeAliases>
 
 </configuration>
