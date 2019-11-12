@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,39 +30,37 @@
 
 <%--###########################--%>
  
-   .table1{
+   .table2{
    	border:1px solid #fff;
    	  border-radius: 10%;
       position:absolute;
-      top:43%;
-      left:45%;
+      top:55%;
+      left:50%;
       width:700px;
       height:700px;
       
-      margin-top: -250px;
-      margin-left: -250px;
+      margin-top: -350px;
+      margin-left: -350px;
    }
-   .table1 td{
+   .table2 td{
    	border-radius: 10%;
    	 width:200px;
-   	background-color:lightblue;
+   	background-color: white;
    }
    
    
    .div	{
-     background-color: skyblue;
-	height: 1500px;
+	height: 1000px;
    }
   
-   .table2{
+   .table1{
       position:absolute;
-      top:50%;
+      top:55%;
       left:50%;
-      width:500px;
-      height:500px;
-      background-color:lightblue;
-      margin-top: -250px;
-      margin-left: -250px;
+      width:700px;
+      height:700px;
+      margin-top: -350px;
+      margin-left: -350px;
    }
    
    tr{
@@ -69,14 +68,45 @@
       width: 500px; height: 70px;
    }
    
+   
+   .regButton {
+   	width:400px;
+   	height:60px;
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color: #86E57F;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+	}
+	.regButton:hover {
+		background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+		background-color:#72b352;
+	}
+	.regButton:active {
+		position:relative;
+		top:1px;
+	}
+	   
 </style>
-
+<c:set var="list" value="${id_list }"/>
+<jsp:useBean id="dao" class="com.care.modelDAO.ModelDAO"/>
 <script type="text/javascript">
 	window.onload = function () {
+		$("#m_id").focus();
 		  $("#cat").hide();
 	}
-
+	
 	function reg_chk(){
+		
 		var id = document.getElementById("m_id").value;
 		var pw = document.getElementById("m_pw").value;
 		var pwchk = document.getElementById("m_pwchk").value;
@@ -86,8 +116,9 @@
 		var tel = document.getElementById("m_tel").value;
 		var mail = document.getElementById("m_mail").value;
 		
-		if(id!=null || id!=""){
-			if(id=="1"){
+				
+		if(!(id==null || id=='')){
+			if(id="1"){
 					document.getElementById("m_id").value="";
 					alert("아이디"+id+"(은)는 이미 가입된 아이디 입니다.");
 				}else{
@@ -99,6 +130,7 @@
 										if(gender!=null && gender!=""){
 											if(tel!=null && tel!=""){
 												if(mail!=null && mail!=""){
+													$("#meminfo").hide();
 													$("#cat").show();
 												}else{
 													alert("메일주소를 입력하세요");
@@ -136,10 +168,13 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header/l_header.jsp"/>
+<h1>
+</h1>
 <div>
 	<form action="register_chk">
 		<div class="div">
-			<table border="1" class="table2" id="meminfo">
+			<table border="1" class="table1" id="meminfo">
 				<tr>
 					<td><font size="4em">아이디</font></td><th><input type="text" name="m_id" id="m_id" placeholder="아이디를 입력하세요" style="width: 300px; height: 60px;"></th>
 				</tr>
@@ -156,7 +191,7 @@
 					<td><font size="4em">생년월일</font></td><th><input type="text" name="m_idnum" id="m_idnum" placeholder="주민번호 앞 6자리를 입력하세요" style="width: 300px; height: 60px;"></th>
 				</tr>
 				<tr>
-					<td><font size="4em">성별</font></td><td align="center">남성<input type="radio" name="m_gender" id="m_gender" value="1">여성<input type="radio" name="m_gender" id="m_gender" value="0"></td>
+					<td><font size="4em">성별</font></td><td align="center"><font size="3em">남성</font><input type="radio" name="m_gender" id="m_gender" value="1"><font size="3em">여성</font><input type="radio" name="m_gender" id="m_gender" value="0"></td>
 				</tr>
 				<tr>
 					<td><font size="4em">전화번호</font></td><th><input type="text" name="m_tel" id="m_tel" placeholder="전화번호를 입력하세요" style="width: 300px; height: 60px;"></th>
@@ -165,54 +200,54 @@
 					<td><font size="4em">이메일</font></td><th><input type="text" name="m_mail" id="m_mail" placeholder="이메일을 입력하세요" style="width: 300px; height: 60px;"></th>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="button" value="다음" name="next" onclick="reg_chk()"></td>
+					<td colspan="2" style="text-align: center "><input class="regButton" type="button" value="다음" name="next" onclick="reg_chk()" ></td>
 				</tr>
 			</table>
 		</div>
 		
-		<table class="table1" id="cat" border="1">
+		<table class="table2" id="cat" border="1">
 			<tr>
-				<td><input type="checkbox" name="sports" value="1">스포츠</td>
-				<td><input type="checkbox" name="news" value="1">뉴스</td>
-				<td><input type="checkbox" name="food" value="1">음식</td>
-				<td><input type="checkbox" name="language" value="1">언어</td>
-				<td><input type="checkbox" name="people" value="1">인물</td>
+				<td>뉴스<br><input type="checkbox" name="c_news" value="1"></td>
+				<td>스포츠<br><input type="checkbox" name="c_sports" value="1"></td>
+				<td>음식<br><input type="checkbox" name="c_food" value="1"></td>
+				<td>언어<br><input type="checkbox" name="c_language" value="1"></td>
+				<td>인물<br><input type="checkbox" name="c_people" value="1"></td>
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" name="animal" value="1">동물</td>
-				<td><input type="checkbox" name="fashion" value="1">패션</td>
-				<td><input type="checkbox" name="love" value="1">연애</td>
-				<td><input type="checkbox" name="movie" value="1">영화</td>
-				<td><input type="checkbox" name="religion" value="1">종교</td>
+				<td>동물<br><input type="checkbox" name="c_animal" value="1"></td>
+				<td>패션<br><input type="checkbox" name="c_fashion" value="1"></td>
+				<td>연애<br><input type="checkbox" name="c_love" value="1"></td>
+				<td>영화<br><input type="checkbox" name="c_movie" value="1"></td>
+				<td>종교<br><input type="checkbox" name="c_religion" value="1"></td>
 			</tr>
 	
 			<tr>
-				<td><input type="checkbox" name="knowledge" value="1">지식</td>
-				<td><input type="checkbox" name="travel" value="1">여행</td>
-				<td><input type="checkbox" name="cartoon" value="1">만화</td>
-				<td><input type="checkbox" name="game" value="1">게임</td>
-				<td><input type="checkbox" name="it" value="1">IT</td>
+				<td>지식<br><input type="checkbox" name="c_knowledge" value="1"></td>
+				<td>여행<br><input type="checkbox" name="c_travel" value="1"></td>
+				<td>만화<br><input type="checkbox" name="c_cartoon" value="1"></td>
+				<td>게임<br><input type="checkbox" name="c_game" value="1"></td>
+				<td>IT<br><input type="checkbox" name="c_it" value="1"></td>
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" name="weather" value="1">날씨</td>
-				<td><input type="checkbox" name="music" value="1">음악</td>
-				<td><input type="checkbox" name="car" value="1">자동차</td>
-				<td><input type="checkbox" name="economy" value="1">경제</td>
-				<td><input type="checkbox" name="etc" value="1">기타</td>
+				<td>날씨<br><input type="checkbox" name="c_weather" value="1"></td>
+				<td>음악<br><input type="checkbox" name="c_music" value="1"></td>
+				<td>자동차<br><input type="checkbox" name="c_car" value="1"></td>
+				<td>경제<br><input type="checkbox" name="c_economy" value="1"></td>
+				<td>기타<br><input type="checkbox" name="c_etc" value="1"></td>
 			</tr>
 			
 			<tr>
-				<td><input type="checkbox" name="job" value="1">Job</td>
-				<td><input type="checkbox" name="living" value="1">리빙</td>
-				<td><input type="checkbox" name="book" value="1">도서</td>
-				<td><input type="checkbox" name="festival" value="1">축제</td>
-				<td><input type="checkbox" name="health" value="1">건강</td>
+				<td>Job<br><input type="checkbox" name="c_job" value="1"></td>
+				<td>리빙<br><input type="checkbox" name="c_living" value="1"></td>
+				<td>도서<br><input type="checkbox" name="c_book" value="1"></td>
+				<td>축제<br><input type="checkbox" name="c_festival" value="1"></td>
+				<td>건강<br><input type="checkbox" name="c_health" value="1"></td>
 			</tr>
 			<tr>
-				<td>
-				<input type="submit" name="sub">
+				<td colspan="5" style="text-align: center;">
+				<input class="regButton" type="submit" name="sub" value="회원가입">
 				</td>
 			</tr>
 		</table>
