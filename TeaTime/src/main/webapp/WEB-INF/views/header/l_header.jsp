@@ -31,7 +31,7 @@
 	
 	.logo {
 		margin-top: 30px;
-		margin-left: 90px;
+		margin-left: 8rem;
 		border-radius: 5px;
 	}
 	.logo:hover {
@@ -41,7 +41,7 @@
 	.title-container {
 		order: 2;
 		margin-top: 30px;
-		margin-left: 60px;
+		margin-left: 4rem;
 	}
 	.title {
 		font-size: 48pt;

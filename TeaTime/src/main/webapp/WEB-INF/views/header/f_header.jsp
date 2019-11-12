@@ -16,8 +16,26 @@
 <link rel="stylesheet" href="${basicCss }">
 
 <style>
+
+body {
+	display: flex;
+	position: absolute;
+}
+
+.wrapper {
+	min-width: 100%;
+	display: flex;
+	margin-right: 0;
+	left: 0;
+	right: 0;
+	flex: 1 1 auto;
+}
 .header-wrapper {
-	margin-top: 0;
+	margin-right: 0;
+	min-width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
 	background-color: #66CCCC;
 	height: 80px;
 	display: flex;
@@ -25,16 +43,19 @@
 	border-bottom-style: solid;
 	border-bottom-width: 5px;
 	border-color: #2F4F4F;
+	flex: 1 0 100%;
 }
 
 .img-container: {
 	order: 1;
+	display: flex;
 }
 
 .logo {
 	margin: 15px;
-	margin-left: 60px;
+	margin-left: 3.75rem;
 	border-radius: 5px;
+	flex: 1 1 auto;
 }
 
 .logo:hover {
@@ -44,12 +65,14 @@
 .title-container {
 	order: 2;
 	margin-top: 12px;
-	margin-left: 10px;
+	margin-left: 0.625rem;
+	display: flex;
 }
 
-.title {
+.title {	
 	font-size: 32pt;
 	color: white;
+	flex: 1 0 auto;
 }
 
 .title:hover {
@@ -68,13 +91,14 @@
 
 .search-bar-container {
 	order: 1;
-	margin-left: 200px;
+	margin-left: 12.5rem;
 	margin-top: 15px;
+	flex: 0 1 auto;
 }
 
 .search-bar {
 	height: 30px;
-	width: 300px; 
+	width: 18.75rem; 
 	font-size: 16pt;
 }
 
@@ -88,9 +112,10 @@
 
 .search-button {
 	margin-top: 3px;
-	margin-left: 1px;
+	margin-left: 0.1rem;
 	width: 30px;
 	height: 30px;
+	flex: 0 1 auto;
 }
 .search-button-container:hover {
 	opacity: .8;
@@ -111,21 +136,25 @@ a {
 	order: 4;
 	display: flex;
 	flex-flow: row;
-	margin-left: 160px;
+	right: 0;
+	margin-left: 6rem;
+	margin-right: 1rem;
 	margin-top: 6px;
 	height: 60px;
-	width: 320px;
+	width: 26rem;
 	background-color: #2F4F4F;
 	line-height: 50px;
 	border-radius: 3px;
 	border-style: solid;
 	border-color: black;
 	text-align: center;
+	flex: 0 1 auto;
 	
 }
 .main-page {
 	order: 1;
-	margin-left: 12px;
+	margin-left: 0.75rem;
+	flex: 1 1 auto;
 }
 .main-page:hover {
 	font-weight: bold;
@@ -133,16 +162,17 @@ a {
 }
 .my-page {
 	order: 2;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-left: 15px;
-	margin-right: 15px;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
 	border-left-style: solid;
 	border-left-color: grey;
 	border-left-width: 2px;
 	border-right-style: solid;
 	border-right-color: grey;
 	border-right-width: 2px;
+	flex: 1 1 auto;
 }
 .my-page:hover {
 	font-weight: bold;
@@ -150,8 +180,8 @@ a {
 }
 .logout {
 	order: 3;
-	margin-right: 12px;
-	
+	margin-right: 0.75rem;
+	flex: 1 1 auto;
 }
 .logout:hover {
 	font-weight: bold;
@@ -178,6 +208,7 @@ a {
 </head>
 <body>
 
+<div class="wrapper">
 	<div class="header-wrapper">
 
 		<div class="img-container">
@@ -212,6 +243,7 @@ a {
 		</div>
 
 	</div>
+</div>
 
 </body>
 </html>
