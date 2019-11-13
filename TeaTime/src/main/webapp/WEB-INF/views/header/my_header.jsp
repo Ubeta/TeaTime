@@ -18,7 +18,6 @@
 <style>
 .headerbody {
 	display: flex;
-	position: absolute;
 	width: 100%;
 }
 
