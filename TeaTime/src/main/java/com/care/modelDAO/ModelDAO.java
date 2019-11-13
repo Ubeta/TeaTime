@@ -12,12 +12,12 @@ import com.care.modelDTO.MemberDTO;
 @Repository
 public class ModelDAO {
 	private static final String namespace="com.care.ttbatis.ttMapper";
-	private String duplication = null;
+
 	@Autowired
 	private SqlSession sqlSession;
 
 	public String register(MemberDTO dto, String id, String tel, String mail) {
-		
+		String du = null;
 		
 		
 			String resultId = sqlSession.selectOne(namespace+".idchk",id);
@@ -38,24 +38,23 @@ public class ModelDAO {
 			
 			try {
 				if(resultId.equals(id)) {
-					duplication = "iddu";
+					du = "iddu";
 				}else if(resultTel.equals(tel)) {
-					duplication = "teldu";
+					du = "teldu";
 				}else if(resultMail.equals(mail)) {
-					duplication = "maildu";	
+					du = "maildu";	
 				}else if(resultId.equals("ok1") && resultTel.equals("ok2") && resultMail.equals("ok3")){
 					System.out.println("중복 없음");
 					sqlSession.insert(namespace+".regmember",dto);
-					duplication = "regiOk";
+					du = "regiOk";
 				}
 			}catch(Exception e) {
-				System.out.println("레지스터 DB에러");
 				e.printStackTrace();
 			}
 				//System.out.println("인서트 실행!!");
 			//sqlSession.insert(namespace+".regmember",dto);
 	
-		return duplication;
+		return du;
 
 	}
 	
@@ -67,22 +66,12 @@ public class ModelDAO {
 	public String category(CategoryDTO cdto) {
 		String cat_du = null;
 		try {
-			if(duplication.equals("iddu")) {
-				cat_du="c_iddu";
-			}else if(duplication.equals("teldu")){
-				cat_du="c_teldu";
-			}else if(duplication.equals("maildu")) {
-				cat_du="c_maildu";
-			}else {			
-				sqlSession.insert(namespace+".category_insert", cdto);		
-				cat_du="catOk";
-			}
+			sqlSession.insert(namespace+".category_insert", cdto);		
+			cat_du = "catOk";
 		}catch(Exception e) {
-			System.out.println("카테고리 DB에러");
-			e.printStackTrace();
+			cat_du = "catdu";
 		}
 		return cat_du;
-		
 	}
 	
 }

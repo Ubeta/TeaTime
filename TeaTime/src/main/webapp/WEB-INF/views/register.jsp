@@ -93,17 +93,13 @@
 	.regButton:active {
 		position:relative;
 		top:1px;
-		
 	}
 	   
 </style>
-
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-
+<script type="text/javascript" src="resources/jquery-3.2.1.min.js"></script>
 <c:set var="list" value="${id_list }"/>
 <jsp:useBean id="dao" class="com.care.modelDAO.ModelDAO"/>
 <script type="text/javascript">
-
 	window.onload = function () {
 		$("#m_id").focus();
 		  $("#cat").hide();
@@ -122,10 +118,14 @@
 		
 				
 		if(!(id==null || id=='')){
+<<<<<<< HEAD
+			
+=======
 			if(id=="1"){
 					document.getElementById("m_id").value="";
 					alert("아이디"+id+"(은)는 이미 가입된 아이디 입니다.");
-			}else{
+				}else{
+>>>>>>> branch 'master' of https://github.com/Ubeta/TeaTime.git
 					if(pw!=null && pw!=""){
 						if(pw==pwchk){
 							if(name!=null && name!=""){
@@ -163,12 +163,11 @@
 					}else{
 						alert("비밀번호를 입력하세요");
 					}
-				}
-			}else{
+				
+		}else{
 			alert("아이디를 입력하세요");
-			}	
+		}
 	}
-
 	
 	
 </script>
