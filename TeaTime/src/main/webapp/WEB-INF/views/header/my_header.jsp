@@ -16,9 +16,10 @@
 <link rel="stylesheet" href="${basicCss }">
 
 <style>
-body {
+.headerbody {
 	display: flex;
 	position: absolute;
+	width: 100%;
 }
 
 .wrapper {
@@ -90,14 +91,14 @@ body {
 
 .search-bar-container {
 	order: 1;
-	margin-left: 12.5rem;
+	margin-left: 16.5rem;
 	margin-top: 15px;
 	flex: 0 1 auto;
 }
 
 .search-bar {
 	height: 30px;
-	width: 18.75rem; 
+	width: 30.75rem; 
 	font-size: 16pt;
 }
 
@@ -136,7 +137,7 @@ a {
 	display: flex;
 	flex-flow: row;
 	right: 0;
-	margin-left: 6rem;
+	margin-left: 16rem;
 	margin-right: 1rem;
 	margin-top: 6px;
 	height: 60px;
@@ -206,7 +207,7 @@ a {
 
 </head>
 <body>
-
+<div class="headerbody">
 	<div class="header-wrapper">
 
 		<div class="img-container">
@@ -241,6 +242,6 @@ a {
 		</div>
 
 	</div>
-
+</div>
 </body>
 </html>
