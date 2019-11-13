@@ -63,11 +63,14 @@ public class ModelDAO {
 		return sqlSession.selectOne(namespace+".loginchk",m_id);
 	}
 	
-	public void category(CategoryDTO cdto) {
+	public String category(CategoryDTO cdto) {
+		String cat_du = null;
 		try {
 			sqlSession.insert(namespace+".category_insert", cdto);			
 		}catch(Exception e) {
-			
+			cat_du = "catOk";
 		}
+		return cat_du;
 	}
+	
 }
