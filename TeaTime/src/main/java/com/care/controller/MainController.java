@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.care.modelDTO.MemberDTO;
 import com.care.service.IService;
 import com.care.service.MLoginService;
 import com.care.service.MRegisterService;
