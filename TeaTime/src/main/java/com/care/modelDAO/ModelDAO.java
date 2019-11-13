@@ -66,7 +66,8 @@ public class ModelDAO {
 	public String category(CategoryDTO cdto) {
 		String cat_du = null;
 		try {
-			sqlSession.insert(namespace+".category_insert", cdto);			
+			sqlSession.insert(namespace+".category_insert", cdto);		
+			cat_du = "catOk";
 		}catch(Exception e) {
 			cat_du = "catdu";
 		}
