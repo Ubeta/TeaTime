@@ -18,7 +18,7 @@
 <style>
 .headerbody {
 	display: flex;
-	width: 100%;
+	width: 1950px;
 }
 
 .wrapper {
@@ -64,7 +64,7 @@
 .title-container {
 	order: 2;
 	margin-top: 12px;
-	margin-left: 0.625rem;
+	margin-left: 2.625rem;
 	display: flex;
 }
 
@@ -90,7 +90,7 @@
 
 .search-bar-container {
 	order: 1;
-	margin-left: 16.5rem;
+	margin-left: 20.5rem;
 	margin-top: 15px;
 	flex: 0 1 auto;
 }
