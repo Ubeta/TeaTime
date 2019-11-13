@@ -118,10 +118,7 @@
 		
 				
 		if(!(id==null || id=='')){
-			if(id="1"){
-					document.getElementById("m_id").value="";
-					alert("아이디"+id+"(은)는 이미 가입된 아이디 입니다.");
-				}else{
+			
 					if(pw!=null && pw!=""){
 						if(pw==pwchk){
 							if(name!=null && name!=""){
@@ -159,11 +156,13 @@
 					}else{
 						alert("비밀번호를 입력하세요");
 					}
-				}
+				
 		}else{
 			alert("아이디를 입력하세요");
 		}
 	}
+	
+	
 </script>
 
 </head>
@@ -172,7 +171,7 @@
 <h1>
 </h1>
 <div>
-	<form action="register_chk">
+	<form action="register_chk" onsubmit="return check_form(this)" id="regform">
 		<div class="div">
 			<table border="1" class="table1" id="meminfo">
 				<tr>
@@ -207,43 +206,43 @@
 		
 		<table class="table2" id="cat" border="1">
 			<tr>
-				<td>뉴스<br><input type="checkbox" name="c_news" value="1"></td>
-				<td>스포츠<br><input type="checkbox" name="c_sports" value="1"></td>
-				<td>음식<br><input type="checkbox" name="c_food" value="1"></td>
-				<td>언어<br><input type="checkbox" name="c_language" value="1"></td>
-				<td>인물<br><input type="checkbox" name="c_people" value="1"></td>
+				<td>뉴스<br><input type="checkbox" class="check_cate" name="c_news" ></td>
+				<td>스포츠<br><input type="checkbox" class="check_cate" name="c_sports" ></td>
+				<td>음식<br><input type="checkbox" class="check_cate" name="c_food" ></td>
+				<td>언어<br><input type="checkbox" class="check_cate" name="c_language" ></td>
+				<td>인물<br><input type="checkbox" class="check_cate" name="c_people" ></td>
 			</tr>
 			
 			<tr>
-				<td>동물<br><input type="checkbox" name="c_animal" value="1"></td>
-				<td>패션<br><input type="checkbox" name="c_fashion" value="1"></td>
-				<td>연애<br><input type="checkbox" name="c_love" value="1"></td>
-				<td>영화<br><input type="checkbox" name="c_movie" value="1"></td>
-				<td>종교<br><input type="checkbox" name="c_religion" value="1"></td>
+				<td>동물<br><input type="checkbox" class="check_cate" name="c_animal" ></td>
+				<td>패션<br><input type="checkbox" class="check_cate" name="c_fashion" ></td>
+				<td>연애<br><input type="checkbox" class="check_cate" name="c_love" ></td>
+				<td>영화<br><input type="checkbox" class="check_cate" name="c_movie" ></td>
+				<td>종교<br><input type="checkbox" class="check_cate" name="c_religion" ></td>
 			</tr>
 	
 			<tr>
-				<td>지식<br><input type="checkbox" name="c_knowledge" value="1"></td>
-				<td>여행<br><input type="checkbox" name="c_travel" value="1"></td>
-				<td>만화<br><input type="checkbox" name="c_cartoon" value="1"></td>
-				<td>게임<br><input type="checkbox" name="c_game" value="1"></td>
-				<td>IT<br><input type="checkbox" name="c_it" value="1"></td>
+				<td>지식<br><input type="checkbox" class="check_cate" name="c_knowledge" ></td>
+				<td>여행<br><input type="checkbox" class="check_cate" name="c_travel" ></td>
+				<td>만화<br><input type="checkbox" class="check_cate" name="c_cartoon" ></td>
+				<td>게임<br><input type="checkbox" class="check_cate" name="c_game" ></td>
+				<td>IT<br><input type="checkbox" class="check_cate" name="c_it" ></td>
 			</tr>
 			
 			<tr>
-				<td>날씨<br><input type="checkbox" name="c_weather" value="1"></td>
-				<td>음악<br><input type="checkbox" name="c_music" value="1"></td>
-				<td>자동차<br><input type="checkbox" name="c_car" value="1"></td>
-				<td>경제<br><input type="checkbox" name="c_economy" value="1"></td>
-				<td>기타<br><input type="checkbox" name="c_etc" value="1"></td>
+				<td>날씨<br><input type="checkbox" class="check_cate" name="c_weather" ></td>
+				<td>음악<br><input type="checkbox" class="check_cate" name="c_music" ></td>
+				<td>자동차<br><input type="checkbox" class="check_cate" name="c_car" ></td>
+				<td>경제<br><input type="checkbox" class="check_cate" name="c_economy" ></td>
+				<td>기타<br><input type="checkbox" class="check_cate" name="c_etc" ></td>
 			</tr>
 			
 			<tr>
-				<td>Job<br><input type="checkbox" name="c_job" value="1"></td>
-				<td>리빙<br><input type="checkbox" name="c_living" value="1"></td>
-				<td>도서<br><input type="checkbox" name="c_book" value="1"></td>
-				<td>축제<br><input type="checkbox" name="c_festival" value="1"></td>
-				<td>건강<br><input type="checkbox" name="c_health" value="1"></td>
+				<td>Job<br><input type="checkbox" class="check_cate" name="c_job" ></td>
+				<td>리빙<br><input type="checkbox" class="check_cate" name="c_living" ></td>
+				<td>도서<br><input type="checkbox" class="check_cate" name="c_book" ></td>
+				<td>축제<br><input type="checkbox" class="check_cate" name="c_festival" ></td>
+				<td>건강<br><input type="checkbox" class="check_cate" name="c_health" ></td>
 			</tr>
 			<tr>
 				<td colspan="5" style="text-align: center;">
@@ -255,4 +254,19 @@
 </div>
 
 </body>
+<script>
+   function check_form() {
+       $(".check_cate").each(function () {
+           if ($(this).is(":checked")) {
+               $(this).val("Y");
+           }else{
+           		var cat_name = $(this).attr("name");
+        	   $("#regform").append("<input type='hidden' name='"+cat_name+"' value='N'>");
+        	  // console.log(cat_name);
+           }
+       	});
+    	//실행할때 지우기
+   }
+   
+</script>
 </html>

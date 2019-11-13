@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.care.service.IService;
+import com.care.service.MCategoryService;
 import com.care.service.MLoginService;
 import com.care.service.MRegisterService;
 
@@ -30,7 +31,9 @@ public class MainController {
 		model.addAttribute("register", request);
 		ser = context.getBean("MRegisterService", MRegisterService.class);
 		ser.execute(model);
-		return "test";
+		ser = context.getBean("MCategoryService", MCategoryService.class);
+		ser.execute(model);
+		return "registerchk";
 	}
 	@RequestMapping("loginchk")
 	public String loginchk(Model model, HttpServletRequest request) {

@@ -36,7 +36,7 @@ public class MRegisterService implements IService{
 		mdto.setM_gender(Integer.parseInt(gender));
 		mdto.setM_tel(tel);
 		mdto.setM_mail(mail);
-		dao.register(mdto);
+		model.addAttribute("du",dao.register(mdto, id, tel, mail));
 	}
 
 }

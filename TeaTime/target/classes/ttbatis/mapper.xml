@@ -7,6 +7,29 @@
 	<insert id="regmember" parameterType="memdto">
 		insert into member (m_id, m_pw, m_name, m_idnum, m_gender, m_tel, m_mail) values (#{m_id},#{m_pw},#{m_name},#{m_idnum},#{m_gender},#{m_tel},#{m_mail})
 	</insert>
+	<!-- 아이디 중복 체크 -->
+	<select id="idchk" resultType="String">
+		select m_id from member where m_id = #{m_id}
+	</select>
+	<!-- 전화번호 중복 체크 -->
+	<select id="telchk" resultType="String">
+		select m_tel from member where m_tel = #{m_tel}
+	</select>
+	<!-- 이메일 중복 체크 -->
+	<select id="mailchk" resultType="String">
+		select m_mail from member where m_mail = #{m_mail}
+	</select>
+	
+	<!-- 카테고리 insert -->
+	<insert id="category_insert" parameterType="catdto">
+		insert into category values(
+		#{m_id}, 
+		#{c_sports}, #{c_news },#{c_food },#{c_language },#{c_people },
+		#{c_animal },#{c_fashion },#{c_love },#{c_movie },#{c_religion },
+		#{c_knowledge },#{c_travel },#{c_cartoon },#{c_game },#{c_it },
+		#{c_weather },#{c_music },#{c_car },#{c_economy },#{c_etc },
+		#{c_job },#{c_living },#{c_book },#{c_festival },#{c_health })
+	</insert>
 	
 	<!-- 일반 로그인임. -->
 	 <select id="loginchk" resultType="memdto" parameterType="String">
