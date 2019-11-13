@@ -68,7 +68,7 @@ public class ModelDAO {
 		try {
 			sqlSession.insert(namespace+".category_insert", cdto);			
 		}catch(Exception e) {
-			cat_du = "catOk";
+			cat_du = "catdu";
 		}
 		return cat_du;
 	}
