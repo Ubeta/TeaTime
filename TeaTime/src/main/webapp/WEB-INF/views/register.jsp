@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>register</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js" ></script>
 <style>
 #cat {
 	text-align: center;
@@ -97,6 +96,7 @@
 	}
 	   
 </style>
+<script type="text/javascript" src="resources/jquery-3.2.1.min.js"></script>
 <c:set var="list" value="${id_list }"/>
 <jsp:useBean id="dao" class="com.care.modelDAO.ModelDAO"/>
 <script type="text/javascript">
@@ -118,7 +118,14 @@
 		
 				
 		if(!(id==null || id=='')){
+<<<<<<< HEAD
 			
+=======
+			if(id=="1"){
+					document.getElementById("m_id").value="";
+					alert("아이디"+id+"(은)는 이미 가입된 아이디 입니다.");
+				}else{
+>>>>>>> branch 'master' of https://github.com/Ubeta/TeaTime.git
 					if(pw!=null && pw!=""){
 						if(pw==pwchk){
 							if(name!=null && name!=""){
@@ -168,8 +175,6 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header/l_header.jsp"/>
-<h1>
-</h1>
 <div>
 	<form action="register_chk" onsubmit="return check_form(this)" id="regform">
 		<div class="div">
