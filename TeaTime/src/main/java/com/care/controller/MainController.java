@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.care.modelDTO.MemberDTO;
 import com.care.service.IService;
+import com.care.service.MCategoryService;
 //import com.care.service.MCategoryService;
 import com.care.service.MLoginService;
 import com.care.service.MRegisterService;
@@ -33,7 +34,7 @@ public class MainController {
 		model.addAttribute("register", request);
 		ser = context.getBean("MRegisterService", MRegisterService.class);
 		ser.execute(model);
-		//ser = context.getBean("MCategoryService", MCategoryService.class);
+		ser = context.getBean("MCategoryService", MCategoryService.class);
 		ser.execute(model);
 		return "registerchk";
 	}
